@@ -23,15 +23,33 @@ var stab = function (bonus) {
     };
     return bonus;
 };
-// crit() takes no arguments. It randomly generates the crit chance, and if it is true, returns 3.
-// HOW TO EDIT CRIT CHANCE: make 'if (Math.random() <= 1 / 16) {' = 'if (8 === 8) {' EXACTLY
-var crit = function () {
-    if (Math.random() <= 1 / 16) {
-        chance = 3;
+// crit() takes a few arguments. It randomly generates the crit chance for each stage (bar stage 3), 
+// and if it is true, returns 3. If left empty, it will return 0.
+// HOW TO EDIT CRIT CHANCE: make 'if (Math.random() <= 1 / 16) {' (for the relevant stage) = 'if (8 === 8) {' EXACTLY
+var crit = function (stage) {
+    if (stage === 0) {
+        if(Math.random() <= 1 / 16) {
+            returnChance = 3;
+        } 
+    } 
+    else if (stage === 1) {
+        if(Math.random() <= 1 / 8) {
+            returnChance = 3
+        } 
+    } 
+    else if (stage === 2) {
+        if(Math.random() <= 1 / 2) {
+            returnChance = 3
+        }
+    }
+    else if (stage === 3) {
+        if(Math.random() <= 1) {
+            returnChance = 3
+        }
     } else {
-        chance = 0;
-    };
-    return chance;
+            returnChance = 0;
+    }
+    return returnChance;
 };
 // You only need to enter in the base attack rank for the attacking Pokemon here. 
 var ATR = function (atkRank) {
