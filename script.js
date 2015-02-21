@@ -139,7 +139,7 @@ var SBD = function (boostDiff) {
 };
 
 // THIS IS WHAT YOU NEED TO EDIT. ONLY TOUCH THIS
-var finalDmg = ((bap() + stab(true) + crit() + ATR() + abilEff() + fieldEff() + itemEffOne() - DRB() - burnEff()) * typeEff()) + (SBD() * 2) + itemEffTwo();
+var finalDmg = ((bap() + stab() + crit() + ATR() + abilEff() + fieldEff() + itemEffOne() - DRB() - burnEff()) * typeEff()) + (SBD() * 2) + itemEffTwo();
 
 // This outputs the final number.
 console.log(finalDmg);
