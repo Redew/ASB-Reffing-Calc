@@ -21,4 +21,4 @@ A calculator for Smogon's ASB program.
 - Item Effects 1 // DONE
 - Item Effects 2 // DONE
 
-[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/17/)
+[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/18/)
