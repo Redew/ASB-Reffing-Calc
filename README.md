@@ -14,11 +14,11 @@ A calculator for Smogon's ASB program.
 ## Things to work on
 
 - <elevator_music> when crits happen they ignore positive def stat boosts and negative atk stat drops
-- Crit stages
+- Crit stages // DONE
 - Ability Effects // DONE
 - Field Effects // DONE
 - Burn Effects // DONE
 - Item Effects 1 // DONE
 - Item Effects 2 // DONE
 
-[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/18/)
+[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/19/)
