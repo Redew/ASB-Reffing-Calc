@@ -13,7 +13,7 @@ A calculator for Smogon's ASB program.
 
 ## Things to work on
 
-- <@elevator_music> when crits happen they ignore positive def stat boosts and negative atk stat drops
+- <elevator_music> when crits happen they ignore positive def stat boosts and negative atk stat drops
 - Ability Effects 
 - Field Effects 
 - Burn Effects
