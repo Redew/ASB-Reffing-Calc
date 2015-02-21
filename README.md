@@ -2,7 +2,7 @@
 A calculator for Smogon's ASB program.
 
 # HOW TO WORK THIS
-- ctrl + a (highlights everything)
+- ctrl + a (highlights everything) [This works better in the jsfiddle]
 - ctrl + c (copies everything highlighted)
 - ctrl + shift + j (opens the JavaScrpt console)
 - ctrl + v (pastes everything in the console)
@@ -14,10 +14,10 @@ A calculator for Smogon's ASB program.
 ## Things to work on
 
 - <elevator_music> when crits happen they ignore positive def stat boosts and negative atk stat drops
-- Ability Effects 
-- Field Effects 
-- Burn Effects
-- Item Effects 1
-- Item Effects 2
+- Ability Effects // DONE
+- Field Effects // DONE
+- Burn Effects // DONE
+- Item Effects 1 // DONE
+- Item Effects 2 // DONE
 
-[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/13/)
+[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/17/)
