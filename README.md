@@ -1,6 +1,3 @@
-# ASB-Reffing-Calc
-A calculator for Smogon's ASB program.
-
 # ASB Reffing Calculator
 
 [Calculator Page](http://redew.github.io/ASB-Reffing-Calc/)
