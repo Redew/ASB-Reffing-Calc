@@ -1,24 +1,8 @@
 # ASB-Reffing-Calc
 A calculator for Smogon's ASB program.
 
-# HOW TO WORK THIS
-- ctrl + a (highlights everything) [This works better in the jsfiddle]
-- ctrl + c (copies everything highlighted)
-- ctrl + shift + j (opens the JavaScrpt console)
-- ctrl + v (pastes everything in the console)
-- EDIT THE RELEVANT DATA
-- PUSH ENTER
+# ASB Reffing Calculator
 
-- IF YOU PUSH ENTER EARLY AND MESS UP, PUSH THE UP BUTTON AND CONTINUE EDITING
+I'm horrible at math. However, I love Smogon's ASB program. Unfortunately for me, reffing requires a LOT of math, which I am bad at. So, I set out to work on a reffing calculator to make reffing loads easier on me and other referees. I couldn't have done this without the help of sirDonovan, akela, and many others.
 
-## Things to work on
-
-- <elevator_music> when crits happen they ignore positive def stat boosts and negative atk stat drops
-- Crit stages // DONE
-- Ability Effects // DONE
-- Field Effects // DONE
-- Burn Effects // DONE
-- Item Effects 1 // DONE
-- Item Effects 2 // DONE
-
-[Fiddle link](http://jsfiddle.net/Redew/6hjt5h8e/19/)
+Everything in the calculator should work, but if not, contact me [here](http://www.smogon.com/forums/members/redew.79332/). You can also catch me on [#capasb](http://mibbit.com/#capasb@irc.synirc.net).
