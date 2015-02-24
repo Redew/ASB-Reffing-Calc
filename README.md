@@ -24,7 +24,7 @@ This allows you to enter in a crit stage. Certain items, abilities, moves, and a
 
 **Attack Rank**: This is the base rank of the attacking Pokemon. *Only enter in the rank.* The calculator will multiply it by 1.5 or 1, depending on the rank.
 
-**Defense Rank**: This is the bad rank of the defending Pokemon. *Only enter in the rank.* The calculator will multiply it by 1.5 or 1, depending on the rank.
+**Defense Rank**: This is the base rank of the defending Pokemon. *Only enter in the rank.* The calculator will multiply it by 1.5 or 1, depending on the rank.
 
 ![abilitem](https://cloud.githubusercontent.com/assets/6467108/6359469/168d67be-bc39-11e4-8350-565f658bd91a.png)
 
