@@ -1,115 +1,113 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <title>ASB Reffing Calculator</title>
-      
-      <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-      <link rel='stylesheet' type='text/css' href='stylesheet.css'/>
-      <script type='text/javascript' src='script.js'></script>
-    </head>
-<body> 
-<a href="#" class="contribs"><strong>Contributors</strong></a>
+<body> <a href="#" class="contribs"><strong>Contributors</strong></a>
 
     <div id="contributors">
          <h1>Contributors</h1>
-
-        Redew <em>(lead development)</em><br />
-        sirDonovan <em>(lead development)</em><br />
-        elevator music <em>(testing)</em><br />
-        Gale <em>(testing)</em><br />
-        Frosty <em>(testing)</em><br />
-        Its_A_Random <em>(testing)</em><br />
-        akela <em>(math formulas + testing)</em><br />
-        ZhengTann <em>(testing)</em><br />
-        #capasb <em>(for being supportive + having various testers)</em><br />
+Redew <em>(lead development)</em>
+        <br />sirDonovan <em>(lead development)</em>
+        <br />elevator music <em>(testing)</em>
+        <br />Gale <em>(testing)</em>
+        <br />Frosty <em>(testing)</em>
+        <br />Its_A_Random <em>(testing)</em>
+        <br />akela <em>(math formulas + testing)</em>
+        <br />ZhengTann <em>(testing)</em>
+        <br />#capasb <em>(for being supportive + having various testers)</em>
+        <br />
     </div>
     <div id="container">
-        <div class="finalText">Output</div>
+        <table class="calc">
+            <tr>
+                <td>
+                    <label>Base Attack Power</label>
+                    <br />
+                    <input type="text" class="bap" placeholder="Base Attack Power" />
+                    <br />
+                    <br />
+                    <label>STAB Bonus?</label>
+                    <input type="checkbox" class="stabBonus" />
+                    <br />
+                    <br />
+                    <label>Crit Stage</label>
+                    <br />
+                    <input type="text" class="critHold" placeholder="Crit Stage" />
+                    <br />
+                    <br />
+                    <label>Attack Rank</label>
+                    <br />
+                    <input type="text" class="ATR" placeholder="Attack Rank" />
+                    <br />
+                    <br />
+                    <label>Ability Effects</label>
+                    <form class="abilityEffectAddSub">
+                        <input type="radio" name="addSubAbility" value="add">Add</input>
+                        <input type="radio" name="addSubAbility" value="subtract">Subtract</input>
+                    </form>
+                    <input type="text" class="abilityEffectModifier" placeholder="Damage modifier" />
+                    <br />
+                    <br />
+                    <label>Field Effects</label>
+                    <form class="fieldEffectAddSub">
+                        <input type="radio" name="addSubField" value="add">Add</input>
+                        <input type="radio" name="addSubField" value="subtract">Subtract</input>
+                    </form>
+                    <input type="text" class="fieldEffectModifier" placeholder="Damage modifier" />
+                    <br />
+                    <br />
+                    <label>Item Effect One</label>
+                    <form class="itemEffectOneAddSub">
+                        <input type="radio" name="addSubItemOne" value="add">Add</input>
+                        <input type="radio" name="addSubItemOne" value="subtract">Subtract</input>
+                    </form>
+                    <input type="text" class="itemEffectModifierOne" placeholder="Damage modifier" />
+                </td>
+                <td>
+                    <label>Defense Rank</label>
+                    <br />
+                    <input type="text" class="DRB" placeholder="Defense Rank" />
+                    <br />
+                    <br />
+                    <label>Burn Effect?</label>
+                    <input type="checkbox" class="burnEffect" />
+                    <br />
+                    <br />
+                    <label>Type Effectiveness</label>
+                    <form class="typeEffectiveness">
+                        <input type="radio" name="effect" value="8">8x</input>
+                        <input type="radio" name="effect" value="4">4x</input>
+                        <input type="radio" name="effect" value="2">2x</input>
+                        <input type="radio" name="effect" value="1">1x</input>
+                        <input type="radio" name="effect" value="1/2">1/2x</input>
+                        <input type="radio" name="effect" value="1/4">1/4x</input>
+                        <input type="radio" name="effect" value="1/8">1/8x</input>
+                        <input type="radio" name="effect" value="0">0x</input>
+                    </form>
+                    <br />
+                    <label>Attacker's Attack Stage Boosts/Decrease</label>
+                    <br />
+                    <input type="text" class="attackStageBoosts" placeholder="Attack Stage Boosts" />
+                    <br />
+                    <br />
+                    <label>Defender's Defense Stage Boosts/Decrease</label>
+                    <br />
+                    <input type="text" class="defenseStageBoosts" placeholder="Defense Stage Boosts" />
+                    <br />
+                    <br />
+                    <label>Item Effect Two</label>
+                    <form class="itemEffectTwoAddSub">
+                        <input type="radio" name="addSubItemTwo" value="add">Add</input>
+                        <input type="radio" name="addSubItemTwo" value="subtract">Subtract</input>
+                    </form>
+                    <input type="text" class="itemEffectModifierTwo" placeholder="Damage modifier" />
+                    <br />
+                    <br />
+                </td>
+            </tr>
+        </table>
         <br />
         <div class="output"></div>
-        <label>Base Attack Power</label>
         <br />
-        <input type="text" class="bap" placeholder="Base Attack Power" />
-        <br />
-        <br />
-        <label>STAB Bonus?</label>
-        <input type="checkbox" class="stabBonus" />
-        <br />
-        <br />
-        <label>Crit Stage</label>
-        <br />
-        <input type="text" class="critHold" placeholder="Crit Stage" />
-        <br />
-        <br />
-        <label>Attack Rank Bonus</label>
-        <br />
-        <input type="text" class="ATR" placeholder="Attack Rank Bonus" />
-        <br />
-        <br />
-        <label>Ability Effects</label>
-        <form class="abilityEffectAddSub">
-            <input type="radio" name="addSubAbility" value="add">Add</input>
-            <input type="radio" name="addSubAbility" value="subtract">Subtract</input>
-        </form>
-        <input type="text" class="abilityEffectModifier" placeholder="Damage modifier" />
-        <br />
-        <br />
-        <label>Field Effects</label>
-        <form class="fieldEffectAddSub">
-            <input type="radio" name="addSubField" value="add">Add</input>
-            <input type="radio" name="addSubField" value="subtract">Subtract</input>
-        </form>
-        <input type="text" class="fieldEffectModifier" placeholder="Damage modifier" />
-        <br />
-        <br />
-        <label>Item Effect One</label>
-        <form class="itemEffectOneAddSub">
-            <input type="radio" name="addSubItemOne" value="add">Add</input>
-            <input type="radio" name="addSubItemOne" value="subtract">Subtract</input>
-        </form>
-        <input type="text" class="itemEffectModifierOne" placeholder="Damage modifier" />
-        <br />
-        <br />
-        <label>Defense Rank Bonus</label>
-        <br />
-        <input type="text" class="DRB" placeholder="Defense Rank Bonus" />
-        <br />
-        <br />
-        <label>Burn Effect?</label>
-        <input type="checkbox" class="burnEffect" />
-        <br />
-        <br />
-        <label>Type Effectiveness</label>
-        <form class="typeEffectiveness">
-            <input type="radio" name="effect" value="8">8x</input>
-            <input type="radio" name="effect" value="4">4x</input>
-            <input type="radio" name="effect" value="2">2x</input>
-            <input type="radio" name="effect" value="1">1x</input>
-            <input type="radio" name="effect" value="1/2">1/2x</input>
-            <input type="radio" name="effect" value="1/4">1/4x</input>
-            <input type="radio" name="effect" value="1/8">1/8x</input>
-            <input type="radio" name="effect" value="0">0x</input>
-        </form>
-        <br />
-        <label>Attacker's Attack Stage Boosts/Decrease</label>
-        <br />
-        <input type="text" class="attackStageBoosts" placeholder="Attack Stage Boosts" />
-        <br />
-        <br />
-        <label>Defender's Defense Stage Boosts/Decrease</label>
-        <br />
-        <input type="text" class="defenseStageBoosts" placeholder="Defense Stage Boosts" />
-        <br />
-        <br />
-        <label>Item Effect Two</label>
-        <form class="itemEffectTwoAddSub">
-            <input type="radio" name="addSubItemTwo" value="add">Add</input>
-            <input type="radio" name="addSubItemTwo" value="subtract">Subtract</input>
-        </form>
-        <input type="text" class="itemEffectModifierTwo" placeholder="Damage modifier" />
-        <br />
-        <br />
-        <input type="button" class="calcButton" value="Calc!" />
-        <input type="button" class="resetButton" value="Reset Calc"/>
+        <center>
+        <input type="button" class="calcButton" value="Calculate" />
+        <input type="button" class="resetButton" value="Reset Fields" />
+        </center>
     </div>
 </body>
