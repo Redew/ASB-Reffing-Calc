@@ -38,6 +38,7 @@ body {
 .calc td, th {
     width:50%;
     display: table-cell;
+    text-align:center;
 }
 a:link, a:visited, a:hover, a:active {
     color:#ab87b4;
