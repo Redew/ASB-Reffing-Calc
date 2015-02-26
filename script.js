@@ -119,41 +119,57 @@ var typeEff = function (effectiveness) {
     return returnThis;
 };
 
-var SBD = function (numOne, numTwo) {
-    var atkDiff = numOne || 0;
-    var defDiff = numTwo || 0;
+var SBD = function() {
     if (critVal) {
-        if (atkDiff < 0) atkDiff = 0;
-        if (defDiff > 0) defDiff = 0;
+        if (atkStageBoosts < 0) atkStageBoosts = 0;
+        if (defStageBoosts > 0) defStageBoosts = 0;
     }
-    return atkDiff - defDiff;
+    return atkStageBoosts - defStageBoosts;
 };
 
-var calculate = function() {
-    var basePower = parseInt($('.bap').val()) || 0;
-    var stabBonus = $('.stabBonus').prop('checked');
-    var critStage = parseInt($('.critHold').val()) || 0;
-    var atkRank = parseInt($('.ATR').val()) || 0;
-    var abilityEffect = $('input[name=addSubAbility][value="add"]').prop("checked") ? 'add' : 'subtract'
-    var abilityEffVal = parseInt($('.abilityEffectModifier').val()) || 0;
-    var fieldEffect = $('input[name=addSubField][value="add"]').prop("checked") ? 'add' : 'subtract'
-    var fieldEffVal = parseInt($('.fieldEffectModifier').val()) || 0;
-    var itemEffectOne = $('input[name=addSubItemOne][value="add"]').prop("checked") ? 'add' : 'subtract'
-    var itemEffOneVal = parseInt($('.itemEffectModifierOne').val()) || 0;
-    var itemEffectTwo = $('input[name=addSubItemTwo][value="add"]').prop("checked") ? 'add' : 'subtract'
-    var itemEffTwoVal = parseInt($('.itemEffectModifierTwo').val()) || 0;
-    var defRank = parseInt($('.DRB').val()) || 0;
-    var burnCheck = $('.burnEffect').prop('checked');
-    var typeEffectivenessButton = $('input:radio[name=effect]:checked') ? $('input:radio[name=effect]:checked').val() : 1
-    var atkStageBoosts = parseInt($('.attackStageBoosts').val()) || 0;
-    var defStageBoosts = parseInt($('.defenseStageBoosts').val()) || 0;
-    
+var atkStageBoosts = 0;
+var defStageBoosts = 0;
+
+var calculate = function () {
+    var basePower = Number($('.bap').val()) || 0;
+    var stabBonus = stab($('.stabBonus').prop('checked'));
+    var critStage = Number($('.critHold').val()) || 0;
     critVal = crit(critStage);
+    var atkRank = ATR(Number($('.ATR').val()) || 0);
+    var abilityEffect = $('input[name=addSubAbility][value="add"]').prop("checked") ? 'add' : 'subtract'
+    var abilityEffVal = abilEff(abilityEffect, Number($('.abilityEffectModifier').val()) || 0);
+    var fieldEffect = $('input[name=addSubField][value="add"]').prop("checked") ? 'add' : 'subtract'
+    var fieldEffVal = fieldEff(fieldEffect, Number($('.fieldEffectModifier').val()) || 0);
+    var itemEffectOne = $('input[name=addSubItemOne][value="add"]').prop("checked") ? 'add' : 'subtract'
+    var itemEffOneVal = itemEffOne(itemEffectOne, Number($('.itemEffectModifierOne').val()) || 0);
+    var itemEffectTwo = $('input[name=addSubItemTwo][value="add"]').prop("checked") ? 'add' : 'subtract'
+    var itemEffTwoVal = itemEffTwo(itemEffectTwo, Number($('.itemEffectModifierTwo').val()) || 0);
+    var defRank = DRB(Number($('.DRB').val()) || 0);
+    var burnCheck = burnEff($('.burnEffect').prop('checked'));
+    var typeEffectivenessButton = typeEff($('input:radio[name=effect]:checked') ? $('input:radio[name=effect]:checked').val() : 1);
+    atkStageBoosts = Number($('.attackStageBoosts').val()) || 0;
+    defStageBoosts = Number($('.defenseStageBoosts').val()) || 0;
+    var boostDiff = SBD();
     
-    var finalDmg = typeEffectivenessButton === '0' ? 0 : ((basePower + stab(stabBonus) + critVal + ATR(atkRank) + abilEff(abilityEffect, abilityEffVal) + fieldEff(fieldEffect, fieldEffVal) + itemEffOne(itemEffectOne, itemEffOneVal) - DRB(defRank) - burnEff(burnCheck)) * typeEff(typeEffectivenessButton)) + (SBD(atkStageBoosts, defStageBoosts) * 2) + itemEffTwo(itemEffectTwo,itemEffTwoVal);
+    var finalDmg = typeEffectivenessButton === '0' ? 0 : ((basePower + stabBonus + critVal + atkRank + abilityEffVal + fieldEffVal + itemEffOneVal - defRank - burnCheck) * typeEffectivenessButton) + (boostDiff * 2) + itemEffTwoVal;
     $('.output').text(finalDmg);
+    var rawOutput = '<br /><br />Raw: ((';
+    rawOutput += (basePower ? basePower : '');
+    rawOutput += (stabBonus ? ' + ' + stabBonus : '');
+    rawOutput += (critVal ? ' + 3 ' : '');
+    rawOutput += (atkRank ? ' + ' + atkRank : '');
+    rawOutput += (abilityEffVal ? (abilityEffect === 'subtract' ? ' - ' : ' + ') + (abilityEffVal < 0 ? abilityEffVal * -1 : abilityEffVal) : '');
+    rawOutput += (fieldEffVal ? (fieldEffect === 'subtract' ? ' - ' : ' + ') + (fieldEffVal < 0 ? fieldEffVal * -1 : fieldEffVal) : '');
+    rawOutput += (itemEffOneVal ? (itemEffectOne === 'subtract' ? ' - ' : ' + ') + (itemEffOneVal < 0 ? itemEffOneVal * -1 : itemEffOneVal) : '');
+    rawOutput += (defRank ? ' - ' + defRank : '');
+    rawOutput += (burnCheck ? ' - 3) ' : ')');
+    rawOutput += (typeEffectivenessButton ? ' * ' + typeEffectivenessButton + ') ' : '');
+    rawOutput += (boostDiff ? ' + (' + atkStageBoosts + ' - ' + defStageBoosts + ' * 2 )' : '');
+    rawOutput += (itemEffTwoVal ? (itemEffectTwo === 'subtract' ? ' - ' : ' + ') + (itemEffTwoVal < 0 ? itemEffTwoVal * -1 : itemEffTwoVal) : '');
+    $('.output').append(rawOutput + ' = ' + finalDmg);
 }
- var resetCalc = function() {
+
+var resetCalc = function () {
     $('.bap').val("");
     $('.stabBonus').prop("checked", false);
     $('.critHold').val("");
@@ -171,7 +187,8 @@ var calculate = function() {
     $('input[name="effect"][value="1"]').prop("checked", true);
     $('.attackStageBoosts').val("");
     $('.defenseStageBoosts').val("");
- }
+    $('.output').text('');
+}
 
 $(document).ready(function () {
 
@@ -195,6 +212,6 @@ $(document).ready(function () {
         });
     });
 
-    $('.calcButton').click(calculate);    
+    $('.calcButton').click(calculate);
     $('.resetButton').click(resetCalc);
 });
