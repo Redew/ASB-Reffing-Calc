@@ -6,29 +6,22 @@ body {
 }
 #container {
     padding: 10px 10px;
-    width:500px;
+    width:600px;
     background-color:#ab87b4;
     border-radius:9px;
     top:250px;
-    left:-300px;
-    transform:translate(70%);
-}
-.finalText {
-    position:relative;
-    float:right;
-    left:-15px;
+    margin: auto;
 }
 .output {
-    width:30px;
-    height:30px;
+    width:400px;
+    height:100px;
     padding:20px;
     border:3px solid #745A7B;
     border-radius:9px;
     text-align:center;
     font-weight:bold;
-    float:right;
-    display:table-cell;
-    vertical-align:middle
+    vertical-align:middle;
+    margin: auto;
 }
 #contributors {
     position: absolute;
@@ -41,6 +34,10 @@ body {
     border:3px solid #745A7B;
     border-radius: 9px;
     padding:10px;
+}
+.calc td, th {
+    width:50%;
+    display: table-cell;
 }
 a:link, a:visited, a:hover, a:active {
     color:#ab87b4;
