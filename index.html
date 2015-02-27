@@ -9,77 +9,91 @@
     </head>		
 <body> 		
 <a href="#" class="contribs"><strong>Contributors</strong></a>
-    <div id="contributors">
-         <h1>Contributors</h1>
+
+<div id="contributors">
+     <h1>Contributors</h1>
 Redew <em>(lead development)</em>
-        <br />sirDonovan <em>(lead development)</em>
-        <br />elevator music <em>(testing)</em>
-        <br />Gale <em>(testing)</em>
-        <br />Frosty <em>(testing)</em>
-        <br />Its_A_Random <em>(testing)</em>
-        <br />akela <em>(math formulas + testing)</em>
-        <br />ZhengTann <em>(testing)</em>
-        <br />#capasb <em>(for being supportive + having various testers)</em>
-        <br />
-    </div>
-    <div id="container">
-        <table class="calc">
-            <tr>
-                <td>
-                    <label>Base Attack Power</label>
-                    <br />
-                    <input type="text" class="bap" placeholder="Base Attack Power" />
-                    <br />
-                    <br />
-                    <label>STAB Bonus?</label>
-                    <input type="checkbox" class="stabBonus" />
-                    <br />
-                    <br />
-                    <label>Crit Stage</label>
-                    <br />
-                    <input type="text" class="critHold" placeholder="Crit Stage" />
-                    <br />
-                    <br />
-                    <label>Attack Rank</label>
-                    <br />
-                    <input type="text" class="ATR" placeholder="Attack Rank" />
-                    <br />
-                    <br />
-                    <label>Ability Effects</label>
-                    <form class="abilityEffectAddSub">
-                        <input type="radio" name="addSubAbility" value="add">Add</input>
+
+    <br />sirDonovan <em>(lead development)</em>
+
+    <br />elevator music <em>(testing)</em>
+
+    <br />Gale <em>(testing)</em>
+
+    <br />Frosty <em>(testing)</em>
+
+    <br />Its_A_Random <em>(testing)</em>
+
+    <br />akela <em>(math formulas + testing)</em>
+
+    <br />ZhengTann <em>(testing)</em>
+
+    <br />#capasb <em>(for being supportive + having various testers)</em>
+
+    <br />
+</div>
+<table class="tableOne">
+    <tr>
+        <th class="left">Input</th>
+    </tr>
+    <tr>
+        <td> <strong>BAP</strong> 
+            <input type="text" class="bap" placeholder="BAP" size="5" /> <strong>(combo?)</strong> <input type="checkbox" class="combo" /> <strong>STAB?</strong> <input type="checkbox" class="stabBonus" size="5"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Crit Stage</strong> <input type="radio" name="critHold" value="0">0</input> <input type="radio" name="critHold" value="1">1</input> <input type="radio" name="critHold" value="2">2</input> <input type="radio" name="critHold" value="3">3</input>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Attack Rank</strong> <input type="text" class="ATR" placeholder="Attack Rank" size="7"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="side">Ability Effects</div>
+            <form class="abilityEffectAddSub">
+                <input type="radio" name="addSubAbility" value="add">Add</input>
                         <input type="radio" name="addSubAbility" value="subtract">Subtract</input>
-                    </form>
-                    <input type="text" class="abilityEffectModifier" placeholder="Damage modifier" />
-                    <br />
-                    <br />
-                    <label>Field Effects</label>
-                    <form class="fieldEffectAddSub">
+                    </form> <input type="text" class="abilityEffectModifier" placeholder="Damage modifier" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="sideTwo">Field Effects</div>
+            <form class="fieldEffectAddSub">
                         <input type="radio" name="addSubField" value="add">Add</input>
                         <input type="radio" name="addSubField" value="subtract">Subtract</input>
                     </form>
                     <input type="text" class="fieldEffectModifier" placeholder="Damage modifier" />
-                    <br />
-                    <br />
-                    <label>Item Effect One</label>
-                    <form class="itemEffectOneAddSub">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="sideThree">Item Effect One</div>
+            <form class="itemEffectOneAddSub">
                         <input type="radio" name="addSubItemOne" value="add">Add</input>
                         <input type="radio" name="addSubItemOne" value="subtract">Subtract</input>
                     </form>
                     <input type="text" class="itemEffectModifierOne" placeholder="Damage modifier" />
-                </td>
-                <td>
-                    <label>Defense Rank</label>
-                    <br />
-                    <input type="text" class="DRB" placeholder="Defense Rank" />
-                    <br />
-                    <br />
-                    <label>Burn Effect?</label>
-                    <input type="checkbox" class="burnEffect" />
-                    <br />
-                    <br />
-                    <label>Type Effectiveness</label>
-                    <form class="typeEffectiveness">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Defense Rank</strong> <input type="text" class="DRB" placeholder="Defense Rank" size="8" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Burn Effect?</strong> <input type="checkbox" class="burnEffect" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Type Effectiveness</strong>
+            <form class="typeEffectiveness">
                         <input type="radio" name="effect" value="8">8x</input>
                         <input type="radio" name="effect" value="4">4x</input>
                         <input type="radio" name="effect" value="2">2x</input>
@@ -89,36 +103,52 @@ Redew <em>(lead development)</em>
                         <input type="radio" name="effect" value="1/8">1/8x</input>
                         <input type="radio" name="effect" value="0">0x</input>
                     </form>
-                    <br />
-                    <label>Attacker's Attack Stage Boosts/Decrease</label>
-                    <br />
-                    <input type="text" class="attackStageBoosts" placeholder="Attack Stage Boosts" />
-                    <br />
-                    <br />
-                    <label>Defender's Defense Stage Boosts/Decrease</label>
-                    <br />
-                    <input type="text" class="defenseStageBoosts" placeholder="Defense Stage Boosts" />
-                    <br />
-                    <br />
-                    <label>Item Effect Two</label>
-                    <form class="itemEffectTwoAddSub">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Attacker's Attack Stage Boosts/Decrease</strong><br />
+            <input type="text" class="attackStageBoosts" placeholder="Attack Stage Boosts" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Attacker's Attack Stage Boosts/Decrease</strong><br />
+            <input type="text" class="defenseStageBoosts" placeholder="Defense Stage Boosts" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="sideFour">Item Effect Two</div>
+            <form class="itemEffectTwoAddSub">
                         <input type="radio" name="addSubItemTwo" value="add">Add</input>
                         <input type="radio" name="addSubItemTwo" value="subtract">Subtract</input>
                     </form>
                     <input type="text" class="itemEffectModifierTwo" placeholder="Damage modifier" />
-                    <br />
-                    <br />
-                </td>
-            </tr>
-        </table>
-        <br />
-        <div class="output"></div>
-        <br />
-        <center>
-        <input type="button" class="calcButton" value="Calculate" />
-        <input type="button" class="resetButton" value="Reset Fields" />
-        </center>
-    </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" class="calcButton" value="Calculate" /> <input type="button" class="resetButton" value="Reset Fields" /> <input type="button" class="rngButton" value="RNG" />
+        </td>
+    </tr> 
+</table>
+<table class="tableTwo">
+    <tr>
+        <th class="right">Output</th>
+    </tr>
+    <tr>
+        <td class="output"></td>
+    </tr>
+    <tr>
+        <td> 
+            <strong>RNG Roll</strong> 
+            <input class="rngBox" type="text" placeholder="RNG Roll" size="5"/> 
+            <strong>Crit Roll</strong>
+            <input class="critBox" type="text" placeholder="Crit Roll" size="5"/>
+        </td>
+    </tr>
+</table>
 </body>
 
 </html>

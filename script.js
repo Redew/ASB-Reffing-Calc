@@ -7,24 +7,27 @@ var stab = function (bonus) {
 };
 
 var crit = function (stage) {
+    var rng = Math.floor(Math.random() * 10000);
+    $('.critBox').val(rng);
     if (stage === 0) {
-        if (Math.random() <= 1 / 16) {
+        if (rng <= (1 / 16) * 10000) {
             return 3;
         }
     } else if (stage === 1) {
-        if (Math.random() <= 1 / 8) {
+        if (rng <= (1 / 8) * 10000) {
             return 3;
         }
     } else if (stage === 2) {
-        if (Math.random() <= 1 / 2) {
+        if (rng <= (1 / 2) * 10000) {
             return 3;
         }
     } else if (stage === 3) {
-        if (Math.random() < 1) {
+        if (rng < 10000) {
             return 3;
         }
     }
-    return 0;
+    return 0
+
 };
 
 var ATR = function (atkRank) {
@@ -119,7 +122,7 @@ var typeEff = function (effectiveness) {
     return returnThis;
 };
 
-var SBD = function() {
+var SBD = function () {
     if (critVal) {
         if (atkStageBoosts < 0) atkStageBoosts = 0;
         if (defStageBoosts > 0) defStageBoosts = 0;
@@ -131,9 +134,9 @@ var atkStageBoosts = 0;
 var defStageBoosts = 0;
 
 var calculate = function () {
-    var basePower = Number($('.bap').val()) || 0;
+    var basePower = ($('.combo').prop('checked') ? Number($('.bap').val()) * 2.25 : Number($('.bap').val())) || 0;
     var stabBonus = stab($('.stabBonus').prop('checked'));
-    var critStage = Number($('.critHold').val()) || 0;
+    var critStage = Number($('input[name=critHold]:checked').val());
     critVal = crit(critStage);
     var atkRank = ATR(Number($('.ATR').val()) || 0);
     var abilityEffect = $('input[name=addSubAbility][value="add"]').prop("checked") ? 'add' : 'subtract'
@@ -150,7 +153,7 @@ var calculate = function () {
     atkStageBoosts = Number($('.attackStageBoosts').val()) || 0;
     defStageBoosts = Number($('.defenseStageBoosts').val()) || 0;
     var boostDiff = SBD();
-    
+
     var finalDmg = typeEffectivenessButton === '0' ? 0 : ((basePower + stabBonus + critVal + atkRank + abilityEffVal + fieldEffVal + itemEffOneVal - defRank - burnCheck) * typeEffectivenessButton) + (boostDiff * 2) + itemEffTwoVal;
     $('.output').text(finalDmg);
     var rawOutput = '<br /><br />Raw: ((';
@@ -171,8 +174,9 @@ var calculate = function () {
 
 var resetCalc = function () {
     $('.bap').val("");
+    $('.combo').prop('checked', false);
     $('.stabBonus').prop("checked", false);
-    $('.critHold').val("");
+    $('input[name="critHold"][value="0"]').prop("checked", true);
     $('.ATR').val("");
     $('input[name="addSubAbility"][value="add"]').prop("checked", true);
     $('.abilityEffectModifier').val("");
@@ -188,18 +192,18 @@ var resetCalc = function () {
     $('.attackStageBoosts').val("");
     $('.defenseStageBoosts').val("");
     $('.output').text('');
+    $('.rngBox').val('');
+    $('.critBox').val('');
+}
+
+var rngRoll = function () {
+    $('.rngBox').val(Math.floor(Math.random() * 10000));
 }
 
 $(document).ready(function () {
 
     resetCalc();
     $('#contributors').hide();
-    $('#contributors').css({
-        left: '580px',
-        top: '250px',
-        width: 0,
-        height: 0
-    });
     $('.contribs').click(function () {
         $('#contributors').toggle(function () {
             $('#contributors').animate({
@@ -214,4 +218,5 @@ $(document).ready(function () {
 
     $('.calcButton').click(calculate);
     $('.resetButton').click(resetCalc);
+    $('.rngButton').click(rngRoll);
 });
