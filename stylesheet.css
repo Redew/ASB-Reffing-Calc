@@ -46,27 +46,3 @@ a:link, a:visited, a:hover, a:active {
     color:gray;
     position:absolute;
 }
-.side {
-    position:absolute;
-    left:115px;
-    top:115px;
-    font-weight:bold;
-}
-.sideTwo {
-    position:absolute;
-    left:125px;
-    top:160px;
-    font-weight:bold;
-}
-.sideThree {
-    position:absolute;
-    left:105px;
-    top:200px;
-    font-weight:bold;
-}
-.sideFour {
-    position:absolute;
-    left:105px;
-    top:425px;
-    font-weight:bold;
-}
