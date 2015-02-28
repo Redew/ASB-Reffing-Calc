@@ -1,18 +1,20 @@
 body {
     background-color:#eee;
     font-family:Arial, Helvetica, sans-serif;
+    margin:0px;
+    padding:0px;
 }
 .tableOne {
     width:49%;
     float: left;
     position:absolute;
-    top:30px;
+    top:60px;
 }
 .tableTwo {
     width:49%;
     float:right;
     position:relative;
-    top:22px;
+    top:60px;
 }
 table tr:nth-child(even) {
     background-color: #eee;
@@ -42,7 +44,35 @@ table tr:nth-child(odd) {
     position:relative;
     padding:5px;
 }
-a:link, a:visited, a:hover, a:active {
-    color:gray;
+a, a:link, a:visited, a:hover, a:active {
+    color:#eee;
+    font-weight:bold;
+    text-decoration: none;
+    display:table-cell;
+    position:relative;
+}
+.link {
+    top:15px;
+    position:relative;
+}
+#navbar {
+    height:50px;
+    width:100%;
+    background-color:gray;
+    display:table;
     position:absolute;
+    text-align:center;
+}
+.select {
+    height:100%;
+    width:150px;
+    background-color:gray;
+    margin:auto 10px;
+    display:inline-block;
+    position:relative;
+    text-align:center;
+    cursor:pointer;
+}
+.select:hover {
+    background-color:#B5B5B5;
 }
